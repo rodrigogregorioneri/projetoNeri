@@ -3,6 +3,9 @@ angular
 		.controller(
 				"loginController",
 				function($scope, $window, $http, $rootScope, $state, $location) {
+				  var url = $location.absUrl().split("#");
+				  var url = url[0];
+				//  console.log(url);
 
 					var _login = function(user) {
 						var user = {
@@ -11,7 +14,7 @@ angular
 						};
 						var opt = {
 							method : 'POST',
-							url : "https://app-11-220-16740.ide.cronapp.io/auth?username="
+							url : url+"auth?username="
 									+ user.username
 									+ "&password="
 									+ user.password,

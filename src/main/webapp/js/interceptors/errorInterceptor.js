@@ -1,4 +1,4 @@
-angular.module("cronapp").factory("errorInterceptor", function ($q,$window, $location) {
+angular.module("cronapp").factory("errorInterceptor", function ($q,$window, $location, $state) {
 	return {
 		responseError: function (rejection) {
 
@@ -6,7 +6,9 @@ angular.module("cronapp").factory("errorInterceptor", function ($q,$window, $loc
 
 			if (rejection.status === 401) { //Authorization error
 				//console.log(rejection);
-				$window.location.href = "login.html";
+				$state.go("index.main");
+			//	$window.location.href = "login.html";
+				
 			}
             else if(rejection.status === 500){ // internal server error
                 //$location.path("/error500");

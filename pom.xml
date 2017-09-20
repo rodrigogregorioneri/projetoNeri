@@ -179,11 +179,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.35</version>
         </dependency>
-        <dependency>
-            <groupId>io.cronapp</groupId>
-            <artifactId>cronapi-java</artifactId>
-            <version>0.0.56</version>
-        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -9,13 +9,9 @@ angular.module("cronapp").factory("accountService", function ($http, appConfig){
         return $http(opt);
     };
     //---------------------------------------------------------------------------------------
-    var _getAppUser = function(user){
-        return $http.get(appConfig.baseUrl + "/Account/Get?email=" + user.email + "&password=" + user.password);
-    };
-    //---------------------------------------------------------------------------------------
     return {
-        login: _login,
-        getAppUser : _getAppUser
+        login: _login
+
     };
     //---------------------------------------------------------------------------------------
 

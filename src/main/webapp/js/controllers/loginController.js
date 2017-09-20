@@ -3,6 +3,7 @@ angular
 		.controller(
 				"loginController",
 				function($scope, $window, $http, $rootScope, $state, $location) {
+				  $scope.mensagem = null;
 				  var url = $location.absUrl().split("#");
 				  var url = url[0];
 				//  console.log(url);
@@ -33,89 +34,27 @@ angular
 
 					$scope.login = function(user) {
 
-						//ladda button spin
+
 						$scope.loading = true;
 
 						_login(user).then(
 								function(data) {
-
-									//set auth info to session
-									// baseService.setAuth(data);
-
-									/*      _getAppUser(user).then(function (appUser){                        
-									              //set appuser info to session
-									              baseService.setUser(appUser);
-									              $window.location.href = "index.html";
-									          },function(data){
-									              clearSession();
-									              $scope.errorMessage = 'Sorry, something weird went wrong. Please try it again later!';
-									              $scope.loading = false;
-									          })*/
+                   
 									if (typeof (Storage) !== "undefined") {
-										// save the user data on localStorage
-										sessionStorage.setItem("_u", JSON
+
+										sessionStorage.setItem("_cron", JSON
 												.stringify(data));
 										$rootScope.session = JSON
-												.parse(sessionStorage._u);
-												$state.go("index.main");
+												.parse(sessionStorage._cron);
+												
 									} else {
-										// Sorry! No Web Storage support.
-										// The home page may not work if it depends
-										// on the logged user data
+
 									}
+									$state.go("index.main");
 									
 								}, function(data) {
-									$state.go("index.login");
+								  $scope.mensagem = data.data.message;
+								//	$state.go("index.login");
 								});
-
 					};
-
-					/*
-					
-					$scope.login = function() {
-						  
-						 var baseUrl = "https://app-11-220-16740.ide.cronapp.io/auth";
-
-							var user = {
-								username : $scope.username.value,
-								password : $scope.password.value
-							};
-
-
-
-							$http({
-								method : 'POST',
-								url : "https://app-11-220-16740.ide.cronapp.io/auth",
-								data : $.param(user),
-								headers : {
-									'Content-Type' : 'application/x-www-form-urlencoded'
-								}
-							}).then(handleSuccess,handleError);
-							
-							
-							
-						//	.success(handleSuccess).error(handleError);
-
-							function handleSuccess(data, status, headers, config) {
-
-								if (typeof (Storage) !== "undefined") {
-
-									localStorage.setItem("_u", JSON.stringify(data));
-									$rootScope.session = JSON.parse(sessionStorage._u);
-								} else {
-
-								}
-
-
-								$state.go("index.main");
-							}
-
-							function handleError(data, status, headers, config) {
-								var error = status == 401 ? $translate
-										.instant('Login.view.invalidPassword') : data;
-					
-							}
-
-						}*/
-
 				});

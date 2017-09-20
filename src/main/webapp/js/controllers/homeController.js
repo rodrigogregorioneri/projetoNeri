@@ -12,7 +12,7 @@ angular
             }).success(function(data, status, headers, config) {
                 // Store data response on session storage
                   console.log('revive :' , new Date(data.expires));
-                  sessionStorage.setItem("_u",JSON.stringify(data));
+                  sessionStorage.setItem("_cron",JSON.stringify(data));
                   // Recussive 
                   setTimeout(function() {
                     $scope.refreshToken();
@@ -24,21 +24,21 @@ angular
             });
         };
 
-        $rootScope.session = (sessionStorage._u) ? JSON.parse(sessionStorage._u) : null;
+        $rootScope.session = (sessionStorage._cron) ? JSON.parse(sessionStorage._cron) : null;
         if($rootScope.session) {
           if ($rootScope.session.token) $scope.refreshToken();
         } else {
-          $state.go("index.login");
-          sessionStorage.removeItem("_u");
+          $state.go("login");
+          sessionStorage.removeItem("_cron");
         }
         
         $rootScope.logout = function logout() {
           $rootScope.session = {};
           if(typeof (Storage) !== "undefined") {
             // save the user data on localStorage
-            sessionStorage.removeItem("_u");
+            sessionStorage.removeItem("_cron");
           }
-          $state.go("index.login");
+          $state.go("login");
         };
         
 	});        

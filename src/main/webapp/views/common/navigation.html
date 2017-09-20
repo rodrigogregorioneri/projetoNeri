@@ -1,64 +1,48 @@
-<div class="nav-side-menu">
-    <div class="brand">Brand Logo</div>
-    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-  
-        <div class="menu-list">
-  
-            <ul id="menu-content" class="menu-content collapse out">
-                <li>
-                  <a href="">
-                  <i class="fa fa-dashboard fa-lg"></i> Dashboard
-                  </a>
-                </li>
-
-                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                  <a href=""><i class="fa fa-gift fa-lg"></i> UI Elements <span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="products">
-                    <li class="active"><a href="">CSS3 Animation</a></li>
-                    <li><a href="">General</a></li>
-                    <li><a href="">Buttons</a></li>
-                    <li><a href="">Tabs & Accordions</a></li>
-                    <li><a href="">Typography</a></li>
-                    <li><a href="">FontAwesome</a></li>
-                    <li><a href="">Slider</a></li>
-                    <li><a href="">Panels</a></li>
-                    <li><a href="">Widgets</a></li>
-                    <li><a href="">Bootstrap Model</a></li>
-                </ul>
-
-
-                <li data-toggle="collapse" data-target="#service" class="collapsed">
-                  <a href=""><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
-                </li>  
-                <ul class="sub-menu collapse" id="service">
-                  <li>New Service 1</li>
-                  <li>New Service 2</li>
-                  <li>New Service 3</li>
-                </ul>
-
-
-                <li data-toggle="collapse" data-target="#new" class="collapsed">
-                  <a href=""><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="new">
-                  <li>New New 1</li>
-                  <li>New New 2</li>
-                  <li>New New 3</li>
-                </ul>
-
-
-                 <li>
-                  <a href="">
-                  <i class="fa fa-user fa-lg"></i> Profile
-                  </a>
-                  </li>
-
-                 <li>
-                  <a href="">
-                  <i class="fa fa-users fa-lg"></i> Users
-                  </a>
-                </li>
-            </ul>
-     </div>
-</div>
+  <div class="component-holder ng-binding ng-scope" data-component="crn-sidebar" id="crn-sidebar-986427">
+  <div class="nav-side-menu navbar-default"> 
+    <div class="brand"> 
+      <img src="img/logo.png" class="" width="" height="30"> 
+    </div> 
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content1"></i> 
+    <div class="menu-list"> 
+      <ul id="menu-content1" class="menu-content  out navbar-nav"> 
+        <li data-toggle="collapse" data-component="crn-sidebar-item" data-target="#menu-user" class="collapsed component-holder">
+          <a href="javascript:void(0);" class="">
+            <img class="user-avatar" alt="{{session.data.user.name}}" ng-src="{{session.data.user.picture || 'img/nophoto.png'}}"> 
+            <span class="">{{session.data.user.name}}</span> 
+            <span class="arrow"></span>
+          </a> 
+          <ul class="sub-menu collapse" id="menu-user"> 
+            <li><a class="component-holder" data-toggle="modal" data-target="#modalPassword" data-component="crn-anchor">Mudar Senha</a></li> 
+            <li ng-click="logout()"><a href="javascript:void(0);"><span class="">Sair</span></a></li> 
+          </ul> 
+        </li>
+        <li  data-toggle="collapse" data-component="crn-sidebar-item" data-target="#menu-sub-0" class="collapsed component-holder">
+            <a href="javascript:void(0);" class="">
+                <i class="fa fa-lg fa-gear"></i> <span class="">Escolha o tema</span> <span class="arrow"></span>
+            </a> 
+            <ul class="sub-menu collapse" id="menu-sub-0"> 
+                <li ng-repeat="theme in themes" ng-click="changeTheme(theme)"> <a href="javascript:void(0);" ng-class="{'bg-primary': myTheme==theme}">Tema<i class="fa fa-lg fa-check pull-right" ></i></a></li>
+            </ul> 
+        </li>
+        <li data-toggle="collapse" data-target="#menu-sub-1" class="collapsed component-holder" data-component="crn-sidebar-item"> 
+            <a href="#/home" class="">
+                <i class="fa fa-lg fa-home"></i> 
+                <span class="">Home</span> 
+            </a> 
+        </li> 
+        <!--ng-if="session.root"-->
+        <li  data-toggle="collapse" data-component="crn-sidebar-item" data-target="#menu-sub-5099" class="collapsed component-holder">
+            <a href="javascript:void(0);" class="">
+                <i class="fa fa-users fa-lg"></i> <span class="">Admin</span> <span class="arrow"></span>
+            </a> 
+            <ul class="sub-menu " id="menu-sub-5099"> 
+                <li><a href="#!/index/main" class="component-holder" data-component="crn-anchor">Main</a></li> 
+                <li><a href="#!/index/teste" class="component-holder" data-component="crn-anchor">Teste</a></li> 
+            </ul> 
+        </li> 
+        <li data-toggle="collapse" data-component="crn-sidebar-item" data-target="#menu-sub-9831" class="collapsed component-holder"> </li> 
+      </ul> 
+    </div> 
+  </div> 
+</div> 

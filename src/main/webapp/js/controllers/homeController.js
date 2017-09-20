@@ -3,6 +3,8 @@ angular
 		.controller(
 				"homeController",
 				function($scope, $window, $http, $rootScope, $state, $location) {
+				  
+				  
 
  // refresh token
         $scope.refreshToken = function() {
@@ -25,6 +27,8 @@ angular
         };
 
         $rootScope.session = (sessionStorage._cron) ? JSON.parse(sessionStorage._cron) : null;
+        $scope.session = (sessionStorage._cron) ? JSON.parse(sessionStorage._cron) : null;
+        
         if($rootScope.session) {
           if ($rootScope.session.token) $scope.refreshToken();
         } else {

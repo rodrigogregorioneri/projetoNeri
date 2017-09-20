@@ -6,13 +6,13 @@
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content1"></i> 
     <div class="menu-list"> 
       <ul id="menu-content1" class="menu-content  out navbar-nav"> 
-        <li data-toggle="collapse" data-component="crn-sidebar-item" data-target="#menu-user" class="collapsed component-holder">
+        <li data-toggle="collapse" data-component="crn-sidebar-item" data-target="#menu-user" class=" component-holder">
           <a href="javascript:void(0);" class="">
             <img class="user-avatar" alt="{{session.data.user.name}}" ng-src="{{session.data.user.picture || 'img/nophoto.png'}}"> 
             <span class="">{{session.data.user.name}}</span> 
             <span class="arrow"></span>
           </a> 
-          <ul class="sub-menu collapse" id="menu-user"> 
+          <ul class="sub-menu " id="menu-user"> 
             <li><a class="component-holder" data-toggle="modal" data-target="#modalPassword" data-component="crn-anchor">Mudar Senha</a></li> 
             <li ng-click="logout()"><a href="javascript:void(0);"><span class="">Sair</span></a></li> 
           </ul> 

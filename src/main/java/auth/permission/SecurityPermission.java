@@ -24,6 +24,7 @@ public class SecurityPermission {
     http.authorizeRequests().antMatchers("/plugins/**").permitAll();
     http.authorizeRequests().antMatchers("/bower_components/**").permitAll();
     http.authorizeRequests().antMatchers("/components/**").permitAll();
+    http.authorizeRequests().antMatchers("/components/js/datasource.js").permitAll();
     http.authorizeRequests().antMatchers("/js/**").permitAll();
     http.authorizeRequests().antMatchers("/lib/**").permitAll();
     http.authorizeRequests().antMatchers("/css/**").permitAll();

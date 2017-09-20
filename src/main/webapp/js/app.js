@@ -1,5 +1,6 @@
 
-angular.module('cronapp', [            
+angular.module('cronapp', [ 
+    'datasourcejs',
     'ui.router'
 ]).run(function(){
     
